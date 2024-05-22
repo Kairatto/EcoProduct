@@ -1,0 +1,13 @@
+django
+djangorestframework
+python-slugify
+Pillow
+drf-yasg
+django-cors-headers
+python-decouple
+django-filter
+
+celery
+redis
+
+secure-smtplib
