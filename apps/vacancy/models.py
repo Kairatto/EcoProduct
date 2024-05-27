@@ -3,8 +3,13 @@ from django.db import models
 
 class Vacancy(models.Model):
     title = models.CharField(max_length=500, verbose_name='Заглавная')
-    description = models.TextField(max_length=5000, verbose_name='Описание')
-    link = models.CharField(max_length=5000, verbose_name='Ссылка')
+    required_work_experience = models.TextField(max_length=5000, verbose_name='Требуемый опыт работы', blank=True, null=True)
+    schedule = models.TextField(max_length=5000, verbose_name='График', blank=True, null=True)
+    responsibilities = models.TextField(max_length=5000, verbose_name='Обязанности', blank=True, null=True)
+    requirements = models.TextField(max_length=5000, verbose_name='Требования', blank=True, null=True)
+    conditions = models.TextField(max_length=5000, verbose_name='Условия', blank=True, null=True)
+    address = models.TextField(max_length=5000, verbose_name='Адрес', blank=True, null=True)
+    link = models.CharField(max_length=5000, verbose_name='Ссылка', blank=True, null=True)
     date = models.DateField(verbose_name='Дата публикации')
 
     def __str__(self) -> str:

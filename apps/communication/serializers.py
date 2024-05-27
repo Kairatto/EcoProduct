@@ -5,7 +5,7 @@ from .models import Links, Contacts
 class LinksSerializer(serializers.ModelSerializer):
     class Meta:
         model = Links
-        fields = ('id', 'youtube', 'facebook', 'instagram', 'another_1', 'another_2', 'another_3')
+        fields = ('id', 'title', 'youtube', 'facebook', 'instagram', 'another_1', 'another_2', 'another_3')
 
 
 class ContactsSerializer(serializers.ModelSerializer):

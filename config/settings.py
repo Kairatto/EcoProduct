@@ -35,7 +35,6 @@ INSTALLED_APPS = [
     'apps.brand',
     'apps.brand_info',
     'apps.communication',
-    # 'apps.company_info',
     'apps.content',
     'apps.flavor',
     'apps.news',

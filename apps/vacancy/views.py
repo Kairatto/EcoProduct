@@ -9,6 +9,11 @@ class VacancyListView(generics.ListAPIView):
     serializer_class = VacancySerializer
 
 
+class VacancyDetailView(generics.RetrieveAPIView):
+    queryset = Vacancy.objects.all()
+    serializer_class = VacancySerializer
+
+
 class DefaultVacancyListView(generics.ListAPIView):
     queryset = DefaultVacancy.objects.all()
     serializer_class = DefaultVacancySerializer

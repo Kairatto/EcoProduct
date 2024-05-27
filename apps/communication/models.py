@@ -2,6 +2,7 @@ from django.db import models
 
 
 class Links(models.Model):
+    title = models.CharField(max_length=5000, verbose_name='Название', blank=True, null=True)
     youtube = models.CharField(max_length=5000, verbose_name='Ссылка на ютуб', blank=True, null=True)
     facebook = models.CharField(max_length=5000, verbose_name='Ссылка на фейсбук', blank=True, null=True)
     instagram = models.CharField(max_length=5000, verbose_name='Ссылка на инстаграмм', blank=True, null=True)

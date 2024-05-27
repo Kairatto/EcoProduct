@@ -7,7 +7,7 @@ class Flavor(models.Model):
     description = models.TextField(max_length=5000, verbose_name='Описание вкуса')
 
     def __str__(self) -> str:
-        return self.title
+        return f"{self.title} - {self.description[:50]}"
 
     class Meta:
         verbose_name = 'Вкус'

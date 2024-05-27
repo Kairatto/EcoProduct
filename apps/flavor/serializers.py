@@ -1,8 +1,8 @@
 from rest_framework import serializers
-from .models import Flavor
+from apps.flavor.models import Flavor
 
 
-class FlavorSerializer(serializers.ModelSerializer):
+class FlavorListSerializer(serializers.ModelSerializer):
     class Meta:
         model = Flavor
         fields = ('id', 'image', 'title', 'description',)

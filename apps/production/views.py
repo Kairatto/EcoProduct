@@ -9,6 +9,11 @@ class ProductionListView(generics.ListAPIView):
     serializer_class = ProductionSerializer
 
 
+class ProductionDetailView(generics.RetrieveAPIView):
+    queryset = Production.objects.all()
+    serializer_class = ProductionSerializer
+
+
 class ProductionShortListView(generics.ListAPIView):
     queryset = ProductionShort.objects.all()
     serializer_class = ProductionShortSerializer

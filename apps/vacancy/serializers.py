@@ -5,7 +5,8 @@ from .models import Vacancy, DefaultVacancy
 class VacancySerializer(serializers.ModelSerializer):
     class Meta:
         model = Vacancy
-        fields = ('id', 'title', 'description', 'link', 'date',)
+        fields = ('id', 'title', 'required_work_experience', 'schedule', 'responsibilities',
+                  'requirements', 'conditions', 'address', 'link', 'date',)
 
 
 class DefaultVacancySerializer(serializers.ModelSerializer):
