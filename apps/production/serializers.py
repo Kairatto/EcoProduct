@@ -1,14 +1,8 @@
 from rest_framework import serializers
-from .models import Production, ProductionShort
-
-
-class ProductionSerializer(serializers.ModelSerializer):
-    class Meta:
-        model = Production
-        fields = ('id', 'image', 'title', 'description',)
+from .models import ProductionShort
 
 
 class ProductionShortSerializer(serializers.ModelSerializer):
     class Meta:
         model = ProductionShort
-        fields = ('id', 'image', 'title', 'description',)
+        fields = ('id', 'image', 'title', 'description', 'language',)

@@ -11,4 +11,4 @@ class OurPartnersSerializer(serializers.ModelSerializer):
 class BecomeAPartnerSerializer(serializers.ModelSerializer):
     class Meta:
         model = BecomeAPartner
-        fields = ('id', 'name', 'country', 'email', 'description')
+        fields = ('id', 'name', 'country', 'email', 'description', 'language')

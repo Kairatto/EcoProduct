@@ -19,6 +19,7 @@ if __name__ == "__main__":
     folders_to_search = [".", "apps/vacancy/migrations", "apps/product/migrations", "apps/production/migrations",
                          "apps/partners/migrations", "apps/news/migrations", "apps/flavor/migrations",
                          "apps/content/migrations", "apps/company_info/migrations", "apps/communication/migrations",
-                         "apps/brand_info/migrations", "apps/brand/migrations", "apps/advantages/migrations"]
+                         "apps/brand_info/migrations", "apps/brand/migrations", "apps/advantages/migrations",
+                         "apps/language/migrations"]
 
     delete_files(file_names_to_delete, folders_to_search)

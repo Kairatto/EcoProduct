@@ -5,4 +5,4 @@ from .models import Advantages
 class AdvantagesSerializer(serializers.ModelSerializer):
     class Meta:
         model = Advantages
-        fields = ('id', 'image', 'title', 'description',)
+        fields = ('id', 'image', 'title', 'description', 'language',)

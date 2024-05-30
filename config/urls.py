@@ -30,7 +30,6 @@ urlpatterns = [
     path('brand/', include('apps.brand.urls')),
     path('brand_info/', include('apps.brand_info.urls')),
     path('communication/', include('apps.communication.urls')),
-    # path('company_info/', include('apps.company_info.urls')),
     path('content/', include('apps.content.urls')),
     path('flavor/', include('apps.flavor.urls')),
     path('news/', include('apps.news.urls')),
@@ -38,6 +37,7 @@ urlpatterns = [
     path('product/', include('apps.product.urls')),
     path('production/', include('apps.production.urls')),
     path('vacancy/', include('apps.vacancy.urls')),
+    path('language/', include('apps.language.urls')),
 
 
 ] + static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)

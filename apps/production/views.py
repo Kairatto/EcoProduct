@@ -1,17 +1,7 @@
 from rest_framework import generics
 
-from apps.production.models import Production, ProductionShort
-from apps.production.serializers import ProductionSerializer, ProductionShortSerializer
-
-
-class ProductionListView(generics.ListAPIView):
-    queryset = Production.objects.all()
-    serializer_class = ProductionSerializer
-
-
-class ProductionDetailView(generics.RetrieveAPIView):
-    queryset = Production.objects.all()
-    serializer_class = ProductionSerializer
+from apps.production.models import ProductionShort
+from apps.production.serializers import ProductionShortSerializer
 
 
 class ProductionShortListView(generics.ListAPIView):

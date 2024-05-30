@@ -5,10 +5,10 @@ from .models import BrandHistory, BrandInfo
 class BrandHistorySerializer(serializers.ModelSerializer):
     class Meta:
         model = BrandHistory
-        fields = ('id', 'image', 'year', 'description',)
+        fields = ('id', 'image', 'year', 'description', 'language',)
 
 
 class BrandInfoSerializer(serializers.ModelSerializer):
     class Meta:
         model = BrandInfo
-        fields = ('id', 'title', 'description', 'desc_1', 'desc_2', 'desc_3', 'desc_4',)
+        fields = ('id', 'title', 'description', 'desc_1', 'desc_2', 'desc_3', 'desc_4', 'language',)

@@ -1,5 +1,7 @@
 from django.db import models
 
+from apps.language.models import Language
+
 
 class BrandInfo(models.Model):
     title = models.CharField(max_length=5000, verbose_name='Слогон компании')
@@ -8,6 +10,7 @@ class BrandInfo(models.Model):
     desc_2 = models.TextField(max_length=5000, verbose_name='2 ячейка')
     desc_3 = models.TextField(max_length=5000, verbose_name='3 ячейка')
     desc_4 = models.TextField(max_length=5000, verbose_name='4 ячейка')
+    language = models.ForeignKey(to=Language, on_delete=models.DO_NOTHING, related_name='brand_info')
 
     def __str__(self) -> str:
         return self.title
@@ -21,6 +24,7 @@ class BrandHistory(models.Model):
     image = models.ImageField(upload_to='logo_images', verbose_name='Логотип для истории бренда')
     year = models.CharField(max_length=5000, verbose_name='Год истории бренда')
     description = models.TextField(max_length=5000, verbose_name='Описание истории бренда')
+    language = models.ForeignKey(to=Language, on_delete=models.DO_NOTHING, related_name='brand_history')
 
     def __str__(self) -> str:
         return self.year

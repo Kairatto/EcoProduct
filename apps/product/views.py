@@ -7,31 +7,23 @@ from apps.product.models import Product, Category
 from apps.product.serializers import ProductSerializer, CategorySerializer, BrandSerializer
 
 
-class ProductFilter(filters.FilterSet):
-    brand = filters.NumberFilter(field_name="brand__id")
+class BrandtFilter(filters.FilterSet):
+    brand = filters.NumberFilter(field_name="id")
+    language = filters.NumberFilter(field_name="language__id")
 
     class Meta:
-        model = Product
-        fields = ['brand']
-
-
-class ProductListView(generics.ListAPIView):
-    queryset = Product.objects.all()
-    serializer_class = ProductSerializer
-    filter_backends = (filters.DjangoFilterBackend,)
-    filterset_class = ProductFilter
-
-
-class CategoryListView(generics.ListAPIView):
-    queryset = Category.objects.all()
-    serializer_class = CategorySerializer
+        model = Brand
+        fields = ['brand', 'language']
 
 
 class BrandView(generics.ListAPIView):
     queryset = Brand.objects.all()
     serializer_class = BrandSerializer
+    filter_backends = (filters.DjangoFilterBackend,)
+    filterset_class = BrandtFilter
 
+    def get_serializer_context(self):
+        context = super().get_serializer_context()
+        context.update({"request": self.request})
+        return context
 
-class CategoryDetailView(generics.RetrieveAPIView):
-    queryset = Category.objects.all()
-    serializer_class = CategorySerializer

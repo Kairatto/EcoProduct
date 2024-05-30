@@ -1,5 +1,7 @@
 from django.db import models
 
+from apps.language.models import Language
+
 
 class Links(models.Model):
     title = models.CharField(max_length=5000, verbose_name='Название', blank=True, null=True)

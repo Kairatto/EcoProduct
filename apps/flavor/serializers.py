@@ -5,4 +5,4 @@ from apps.flavor.models import Flavor
 class FlavorListSerializer(serializers.ModelSerializer):
     class Meta:
         model = Flavor
-        fields = ('id', 'image', 'title', 'description',)
+        fields = ('id', 'image', 'title', 'description', 'language',)
