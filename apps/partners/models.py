@@ -20,7 +20,6 @@ class BecomeAPartner(models.Model):
     country = models.CharField(max_length=5000, verbose_name='Страна')
     email = models.CharField(max_length=5000, verbose_name='email')
     description = models.TextField(max_length=5000, verbose_name='Кратко опишите идею сотрудничества')
-    language = models.ForeignKey(to=Language, on_delete=models.DO_NOTHING, related_name='become_a_partner')
 
     def __str__(self) -> str:
         return self.name
