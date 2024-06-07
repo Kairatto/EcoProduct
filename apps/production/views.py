@@ -55,7 +55,7 @@ class ProductionPathFilter(filters.FilterSet):
     language = filters.NumberFilter(field_name="language__id")
 
     class Meta:
-        model = Production
+        model = ProductionPath
         fields = ['language']
 
 

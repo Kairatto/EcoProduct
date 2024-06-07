@@ -6,6 +6,7 @@ from apps.news.serializers import NewsSerializer
 
 
 class NewsFilter(filters.FilterSet):
+    specific = filters.CharFilter(field_name="specific")
     language = filters.NumberFilter(field_name="language__id")
 
     class Meta:

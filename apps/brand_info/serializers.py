@@ -11,4 +11,4 @@ class BrandHistorySerializer(serializers.ModelSerializer):
 class BrandInfoSerializer(serializers.ModelSerializer):
     class Meta:
         model = BrandInfo
-        fields = ('id', 'title', 'description', 'desc_1', 'desc_2', 'desc_3', 'desc_4', 'language',)
+        fields = ('id', 'title', 'description', 'title_1', 'desc_1', 'title_2', 'desc_2', 'title_3', 'desc_3', 'title_4', 'desc_4', 'language',)

@@ -7,6 +7,7 @@ from apps.language.models import Language
 class News(models.Model):
     image = models.ImageField(upload_to='news_images', verbose_name='Фотография')
     title = models.CharField(max_length=5000, verbose_name='Заглавная')
+    specific = models.CharField(max_length=5000, verbose_name='Определите новость, для разных языков', null=True)
     description = models.TextField(max_length=5000, verbose_name='Описание')
     date = models.DateField(verbose_name='Дата публикации')
     language = models.ForeignKey(to=Language, on_delete=models.DO_NOTHING, related_name='news')

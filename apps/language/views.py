@@ -8,3 +8,8 @@ class LanguageListView(generics.ListAPIView):
     queryset = Language.objects.all()
     serializer_class = LanguageSerializer
 
+
+class LanguageDetailView(generics.RetrieveAPIView):
+    queryset = Language.objects.all()
+    serializer_class = LanguageSerializer
+

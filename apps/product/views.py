@@ -7,7 +7,7 @@ from apps.product.serializers import BrandSerializer
 
 
 class BrandFilter(filters.FilterSet):
-    brand = filters.NumberFilter(field_name="id")
+    brand = filters.CharFilter(field_name="title")
     language = filters.NumberFilter(field_name="language__id")
 
     class Meta:
