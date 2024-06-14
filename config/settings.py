@@ -3,10 +3,10 @@ from datetime import timedelta
 from pathlib import Path
 from decouple import config
 
+
 BASE_DIR = Path(__file__).resolve().parent.parent
 
-
-SECRET_KEY = 'django-insecure-k(v0k+q3b9c_n4xj+zj2528ei-m%c)ts#^sm26=f(w$o1ufd8d'
+SECRET_KEY = config('SECRET_KEY')
 
 DEBUG = True
 
@@ -126,27 +126,19 @@ MEDIA_ROOT = os.path.join(BASE_DIR, 'media')
 
 
 # STATIC_URL = '/static/'
-# STATIC_ROOT = '/home/kairatto/Wanders/static/'
+# STATIC_ROOT = '/home/kairatto/EcoProduct/static/'
 
 # MEDIA_URL = '/media/'
-# MEDIA_ROOT = '/home/kairatto/Wanders/media/'
+# MEDIA_ROOT = '/home/kairatto/EcoProduct/media/'
 
 
-# EMAIL_BACKEND = 'django.core.mail.backends.smtp.EmailBackend'
-# EMAIL_HOST = 'smtp.gmail.com'
-# EMAIL_HOST_USER = config('EMAIL_HOST_USER')
-# EMAIL_PORT = config('EMAIL_PORT', default=587)
-# EMAIL_HOST_PASSWORD = config('EMAIL_HOST_PASSWORD')
-# EMAIL_USE_TLS = config('EMAIL_USE_TLS', cast=bool)
-#
-# CELERY_BROKER_URL = 'redis://localhost:6379/0'
-# CELERY_RESULT_BACKEND = 'redis://localhost:6379/0'
-
-
-# CELERY_BROKER_URL = 'redis://127.0.0.1:6379/0'
-# CELERY_RESULT_BACKEND = 'redis://127.0.0.1:6379/0'
-
-# CELERY_BEAT_SCHEDULER = 'django_celery_beat.schedulers:DatabaseScheduler'
+EMAIL_BACKEND = config('EMAIL_BACKEND')
+EMAIL_HOST = config('EMAIL_HOST')
+EMAIL_PORT = config('EMAIL_PORT', cast=int)
+EMAIL_USE_TLS = config('EMAIL_USE_TLS', cast=bool)
+EMAIL_HOST_USER = config('EMAIL_HOST_USER')
+EMAIL_HOST_PASSWORD = config('EMAIL_HOST_PASSWORD')
+RECIPIENT_EMAIL = config('RECIPIENT_EMAIL')  # Почта, на которую будут отправляться данные
 
 
 DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'

@@ -13,6 +13,7 @@ class Vacancy(models.Model):
     address = models.TextField(max_length=5000, verbose_name='Адрес', blank=True, null=True)
     link = models.CharField(max_length=5000, verbose_name='Ссылка', blank=True, null=True)
     date = models.DateField(verbose_name='Дата публикации')
+    specific = models.CharField(max_length=5000, verbose_name='Определите вакансию, для разных языков', null=True)
     language = models.ForeignKey(to=Language, on_delete=models.DO_NOTHING, related_name='vacancy')
 
     def __str__(self) -> str:

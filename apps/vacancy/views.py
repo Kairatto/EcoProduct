@@ -6,11 +6,12 @@ from apps.vacancy.serializers import VacancySerializer, DefaultVacancySerializer
 
 
 class VacancyFilter(filters.FilterSet):
+    specific = filters.CharFilter(field_name="specific")
     language = filters.NumberFilter(field_name="language__id")
 
     class Meta:
         model = Vacancy
-        fields = ['language']
+        fields = ['language', 'specific']
 
 
 class VacancyListView(generics.ListAPIView):

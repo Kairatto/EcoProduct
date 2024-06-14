@@ -11,7 +11,7 @@ class NewsFilter(filters.FilterSet):
 
     class Meta:
         model = News
-        fields = ['language']
+        fields = ['language', 'specific']
 
 
 class NewsListView(generics.ListAPIView):

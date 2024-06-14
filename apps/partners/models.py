@@ -1,13 +1,12 @@
 from django.db import models
-
-from apps.language.models import Language
+from django.db.models import CharField
 
 
 class OurPartners(models.Model):
     image = models.ImageField(upload_to='our_partners_images', verbose_name='Лого партнера')
     title = models.CharField(max_length=5000, verbose_name='Название партнера')
 
-    def __str__(self) -> str:
+    def __str__(self) -> CharField:
         return self.title
 
     class Meta:
@@ -21,7 +20,7 @@ class BecomeAPartner(models.Model):
     email = models.CharField(max_length=5000, verbose_name='email')
     description = models.TextField(max_length=5000, verbose_name='Кратко опишите идею сотрудничества')
 
-    def __str__(self) -> str:
+    def __str__(self) -> CharField:
         return self.name
 
     class Meta:
