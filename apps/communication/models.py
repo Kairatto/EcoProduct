@@ -1,6 +1,5 @@
 from django.db import models
-
-from apps.language.models import Language
+from django.db.models import CharField
 
 
 class Links(models.Model):
@@ -11,6 +10,9 @@ class Links(models.Model):
     another_1 = models.CharField(max_length=5000, verbose_name='Ссылка на другую социальную сеть 1', blank=True, null=True)
     another_2 = models.CharField(max_length=5000, verbose_name='Ссылка на другую социальную сеть 2', blank=True, null=True)
     another_3 = models.CharField(max_length=5000, verbose_name='Ссылка на другую социальную сеть 3', blank=True, null=True)
+
+    def __str__(self) -> CharField:
+        return self.title
 
     class Meta:
         verbose_name = 'Ссылка на другую платформу'

@@ -39,5 +39,4 @@ urlpatterns = [
     path('vacancy/', include('apps.vacancy.urls')),
     path('language/', include('apps.language.urls')),
 
-
 ] + static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)

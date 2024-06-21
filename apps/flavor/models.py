@@ -4,7 +4,7 @@ from apps.language.models import Language
 
 
 class Flavor(models.Model):
-    image = models.ImageField(upload_to='flavor_images', verbose_name='Фотография вкуса')
+    image = models.FileField(upload_to='flavor_images', verbose_name='Фотография вкуса')
     title = models.CharField(max_length=5000, verbose_name='Название вкуса')
     description = models.TextField(max_length=5000, verbose_name='Описание вкуса')
     language = models.ForeignKey(to=Language, on_delete=models.DO_NOTHING, related_name='flavor')

@@ -1,4 +1,5 @@
 from django.db import models
+from django.db.models import CharField
 
 from apps.language.models import Language
 
@@ -16,7 +17,7 @@ class Vacancy(models.Model):
     specific = models.CharField(max_length=5000, verbose_name='Определите вакансию, для разных языков', null=True)
     language = models.ForeignKey(to=Language, on_delete=models.DO_NOTHING, related_name='vacancy')
 
-    def __str__(self) -> str:
+    def __str__(self) -> CharField:
         return self.title
 
     class Meta:
@@ -28,7 +29,7 @@ class DefaultVacancy(models.Model):
     title = models.CharField(max_length=5000, verbose_name='Заглавная', blank=True)
     link = models.CharField(max_length=5000, verbose_name='Ссылка')
 
-    def __str__(self) -> str:
+    def __str__(self) -> CharField:
         return self.title
 
     class Meta:

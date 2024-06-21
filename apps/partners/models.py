@@ -3,7 +3,7 @@ from django.db.models import CharField
 
 
 class OurPartners(models.Model):
-    image = models.ImageField(upload_to='our_partners_images', verbose_name='Лого партнера')
+    image = models.FileField(upload_to='our_partners_images', verbose_name='Лого партнера')
     title = models.CharField(max_length=5000, verbose_name='Название партнера')
 
     def __str__(self) -> CharField:

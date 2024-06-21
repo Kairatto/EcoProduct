@@ -1,11 +1,12 @@
 from django.db import models
+from django.db.models import CharField
 
 
 class LogoCompany(models.Model):
-    image = models.ImageField(upload_to='logo_company_images', verbose_name='Фотография логотипа компании')
+    image = models.FileField(upload_to='logo_company_images', verbose_name='Фотография логотипа компании')
     title = models.CharField(max_length=5000, verbose_name='Название компании')
 
-    def __str__(self) -> str:
+    def __str__(self) -> CharField:
         return self.title
 
     class Meta:
@@ -17,7 +18,7 @@ class Video(models.Model):
     video = models.FileField(upload_to='video', verbose_name='Видео')
     title = models.CharField(max_length=5000, verbose_name='Название Видео')
 
-    def __str__(self) -> str:
+    def __str__(self) -> CharField:
         return self.title
 
     class Meta:

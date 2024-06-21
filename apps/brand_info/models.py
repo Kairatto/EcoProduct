@@ -1,4 +1,5 @@
 from django.db import models
+from django.db.models import CharField
 
 from apps.language.models import Language
 
@@ -16,7 +17,7 @@ class BrandInfo(models.Model):
     desc_4 = models.TextField(max_length=5000, verbose_name='4 ячейка')
     language = models.ForeignKey(to=Language, on_delete=models.DO_NOTHING, related_name='brand_info')
 
-    def __str__(self) -> str:
+    def __str__(self) -> CharField:
         return self.title
 
     class Meta:
@@ -25,12 +26,12 @@ class BrandInfo(models.Model):
 
 
 class BrandHistory(models.Model):
-    image = models.ImageField(upload_to='logo_images', verbose_name='Логотип для истории бренда')
+    image = models.FileField(upload_to='logo_images', verbose_name='Логотип для истории бренда')
     year = models.CharField(max_length=5000, verbose_name='Год истории бренда')
     description = models.TextField(max_length=5000, verbose_name='Описание истории бренда')
     language = models.ForeignKey(to=Language, on_delete=models.DO_NOTHING, related_name='brand_history')
 
-    def __str__(self) -> str:
+    def __str__(self) -> CharField:
         return self.year
 
     class Meta:

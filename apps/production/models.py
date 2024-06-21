@@ -5,7 +5,7 @@ from apps.language.models import Language
 
 
 class Production(models.Model):
-    image = models.ImageField(upload_to='production_images', verbose_name='Картинка производства')
+    image = models.FileField(upload_to='production_images', verbose_name='Картинка производства')
     title = models.CharField(max_length=5000, verbose_name='Слогон производства')
     description = models.TextField(max_length=5000, verbose_name='Описание производства')
     language = models.ForeignKey(to=Language, on_delete=models.DO_NOTHING, related_name='production')
@@ -19,7 +19,7 @@ class Production(models.Model):
 
 
 class ProductionShort(models.Model):
-    image = models.ImageField(upload_to='production_short_images', verbose_name='Картинка производства')
+    image = models.FileField(upload_to='production_short_images', verbose_name='Картинка производства')
     title = models.CharField(max_length=5000, verbose_name='Слогон производства')
     description = models.TextField(max_length=5000, verbose_name='Описание производства')
     language = models.ForeignKey(to=Language, on_delete=models.DO_NOTHING, related_name='production_short')
@@ -49,27 +49,27 @@ class ProductionPath(models.Model):
 
     title_1 = models.CharField(max_length=5000, verbose_name='Заглавная_1')
     desc_1 = models.TextField(max_length=5000, verbose_name='Описание_1')
-    image_1 = models.ImageField(upload_to='production_path_images', verbose_name='Картинка_1')
+    image_1 = models.FileField(upload_to='production_path_images', verbose_name='Картинка_1')
 
     title_2 = models.CharField(max_length=5000, verbose_name='Заглавная_2')
     desc_2 = models.TextField(max_length=5000, verbose_name='Описание_2')
-    image_2 = models.ImageField(upload_to='production_path_images', verbose_name='Картинка_2')
+    image_2 = models.FileField(upload_to='production_path_images', verbose_name='Картинка_2')
 
     title_3 = models.CharField(max_length=5000, verbose_name='Заглавная_3')
     desc_3 = models.TextField(max_length=5000, verbose_name='Описание_3')
-    image_3 = models.ImageField(upload_to='production_path_images', verbose_name='Картинка_3')
+    image_3 = models.FileField(upload_to='production_path_images', verbose_name='Картинка_3')
 
     title_4 = models.CharField(max_length=5000, verbose_name='Заглавная_4')
     desc_4 = models.TextField(max_length=5000, verbose_name='Описание_4')
-    image_4 = models.ImageField(upload_to='production_path_images', verbose_name='Картинка_4')
+    image_4 = models.FileField(upload_to='production_path_images', verbose_name='Картинка_4')
 
     title_5 = models.CharField(max_length=5000, verbose_name='Заглавная_5')
     desc_5 = models.TextField(max_length=5000, verbose_name='Описание_5')
-    image_5 = models.ImageField(upload_to='production_path_images', verbose_name='Картинка_5')
+    image_5 = models.FileField(upload_to='production_path_images', verbose_name='Картинка_5')
 
     title_6 = models.CharField(max_length=5000, verbose_name='Заглавная_6')
     desc_6 = models.TextField(max_length=5000, verbose_name='Описание_6')
-    image_6 = models.ImageField(upload_to='production_path_images', verbose_name='Картинка_6')
+    image_6 = models.FileField(upload_to='production_path_images', verbose_name='Картинка_6')
 
     language = models.ForeignKey(to=Language, on_delete=models.DO_NOTHING, related_name='production_path')
 
