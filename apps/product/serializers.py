@@ -56,19 +56,25 @@ class FlavorSerializer(serializers.ModelSerializer):
 
 class BrandSerializer(serializers.ModelSerializer):
     flavors = serializers.SerializerMethodField()
+    category = serializers.SerializerMethodField()
     image_logo = serializers.SerializerMethodField()
     image_circle = serializers.SerializerMethodField()
     background = serializers.SerializerMethodField()
+    flavor_bg = serializers.SerializerMethodField()
     language = LanguageSerializer()
 
     class Meta:
         model = Brand
-        fields = ['id', 'image_logo', 'image_circle', 'background', 'title',
-                  'tagline', 'description', 'file', 'language', 'flavors']
+        fields = ['id', 'image_logo', 'image_circle', 'image_main', 'background', 'flavor_bg', 'title',
+                  'tagline', 'description', 'file', 'language', 'category', 'flavors']
 
     def get_flavors(self, obj):
         flavors = Flavor.objects.filter(products__brand=obj).distinct()
         return FlavorSerializer(flavors, many=True, context=self.context).data
+
+    def get_category(self, obj):
+        category = Category.objects.filter(products__brand=obj).distinct()
+        return CategorySerializer(category, many=True, context=self.context).data
 
     def get_image_logo(self, obj):
         request = self.context.get('request')
@@ -86,4 +92,10 @@ class BrandSerializer(serializers.ModelSerializer):
         request = self.context.get('request')
         if obj.background:
             return get_full_url(request, obj.background.url)
+        return None
+
+    def get_flavor_bg(self, obj):
+        request = self.context.get('request')
+        if obj.flavor_bg:
+            return get_full_url(request, obj.flavor_bg.url)
         return None
