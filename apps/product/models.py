@@ -20,10 +20,10 @@ class Category(models.Model):
 class Product(models.Model):
     image = models.FileField(upload_to='product_images', verbose_name='Фотография продукта')
     title = models.CharField(max_length=5000, verbose_name='Название продукта', blank=True, null=True)
-    category = models.ForeignKey(to=Category, on_delete=models.DO_NOTHING, related_name='products')
-    flavor = models.ForeignKey(to=Flavor, on_delete=models.DO_NOTHING, related_name='products')
-    brand = models.ForeignKey(to=Brand, on_delete=models.DO_NOTHING, related_name='products')
-    language = models.ForeignKey(to=Language, on_delete=models.DO_NOTHING, related_name='products')
+    brand = models.ForeignKey(to=Brand, on_delete=models.SET_NULL, related_name='products', blank=True, null=True)
+    flavor = models.ForeignKey(to=Flavor, on_delete=models.SET_NULL, related_name='products', blank=True, null=True)
+    language = models.ForeignKey(to=Language, on_delete=models.SET_NULL, related_name='products', blank=True, null=True)
+    category = models.ForeignKey(to=Category, on_delete=models.SET_NULL, related_name='products', blank=True, null=True)
 
     def __str__(self) -> CharField:
         return self.title

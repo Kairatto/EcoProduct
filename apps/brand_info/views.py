@@ -1,5 +1,7 @@
 from rest_framework import generics
 from django_filters import rest_framework as filters
+from django.utils.decorators import method_decorator
+from django.views.decorators.cache import cache_page
 
 from apps.brand_info.models import BrandInfo, BrandHistory
 from apps.brand_info.serializers import BrandInfoSerializer, BrandHistorySerializer
@@ -19,6 +21,10 @@ class BrandInfoListView(generics.ListAPIView):
     filter_backends = (filters.DjangoFilterBackend,)
     filterset_class = BrandInfoFilter
 
+    @method_decorator(cache_page(60 * 1440))  # 1 день
+    def dispatch(self, *args, **kwargs):
+        return super().dispatch(*args, **kwargs)
+
 
 class BrandHistoryFilter(filters.FilterSet):
     language = filters.NumberFilter(field_name="language__id")
@@ -33,3 +39,7 @@ class BrandHistoryListView(generics.ListAPIView):
     serializer_class = BrandHistorySerializer
     filter_backends = (filters.DjangoFilterBackend,)
     filterset_class = BrandHistoryFilter
+
+    @method_decorator(cache_page(60 * 1440))  # 1 день
+    def dispatch(self, *args, **kwargs):
+        return super().dispatch(*args, **kwargs)

@@ -1,5 +1,7 @@
 from rest_framework import generics
 from django_filters import rest_framework as filters
+from django.utils.decorators import method_decorator
+from django.views.decorators.cache import cache_page
 
 from apps.brand.models import Brand
 
@@ -20,6 +22,10 @@ class BrandView(generics.ListAPIView):
     serializer_class = BrandSerializer
     filter_backends = (filters.DjangoFilterBackend,)
     filterset_class = BrandFilter
+
+    @method_decorator(cache_page(60 * 1440))  # 1 день
+    def dispatch(self, *args, **kwargs):
+        return super().dispatch(*args, **kwargs)
 
     def get_serializer_context(self):
         context = super().get_serializer_context()

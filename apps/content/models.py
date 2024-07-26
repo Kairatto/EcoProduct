@@ -3,8 +3,8 @@ from django.db.models import CharField
 
 
 class LogoCompany(models.Model):
-    image = models.FileField(upload_to='logo_company_images', verbose_name='Фотография логотипа компании')
     title = models.CharField(max_length=5000, verbose_name='Название компании')
+    image = models.FileField(upload_to='logo_company_images', verbose_name='Фотография логотипа компании')
 
     def __str__(self) -> CharField:
         return self.title

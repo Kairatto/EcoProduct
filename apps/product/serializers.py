@@ -2,8 +2,9 @@ from rest_framework import serializers
 
 from apps.brand.models import Brand
 from apps.flavor.models import Flavor
-from apps.language.serializers import LanguageSerializer
 from apps.product.models import Product, Category
+
+from apps.language.serializers import LanguageSerializer
 
 
 def get_full_url(request, path):

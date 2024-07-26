@@ -3,8 +3,8 @@ from django.db.models import CharField
 
 
 class OurPartners(models.Model):
-    image = models.FileField(upload_to='our_partners_images', verbose_name='Лого партнера')
     title = models.CharField(max_length=5000, verbose_name='Название партнера')
+    image = models.FileField(upload_to='our_partners_images', verbose_name='Лого партнера')
 
     def __str__(self) -> CharField:
         return self.title
@@ -16,8 +16,8 @@ class OurPartners(models.Model):
 
 class BecomeAPartner(models.Model):
     name = models.CharField(max_length=5000, verbose_name='Имя')
-    country = models.CharField(max_length=5000, verbose_name='Страна')
     email = models.CharField(max_length=5000, verbose_name='email')
+    country = models.CharField(max_length=5000, verbose_name='Страна')
     description = models.TextField(max_length=5000, verbose_name='Кратко опишите идею сотрудничества')
 
     def __str__(self) -> CharField:

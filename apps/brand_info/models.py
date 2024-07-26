@@ -15,7 +15,7 @@ class BrandInfo(models.Model):
     desc_3 = models.TextField(max_length=5000, verbose_name='3 ячейка')
     title_4 = models.CharField(max_length=5000, verbose_name='4 загланая', null=True)
     desc_4 = models.TextField(max_length=5000, verbose_name='4 ячейка')
-    language = models.ForeignKey(to=Language, on_delete=models.DO_NOTHING, related_name='brand_info')
+    language = models.ForeignKey(to=Language, on_delete=models.SET_NULL, related_name='brand_info', blank=True, null=True)
 
     def __str__(self) -> CharField:
         return self.title
@@ -26,10 +26,10 @@ class BrandInfo(models.Model):
 
 
 class BrandHistory(models.Model):
-    image = models.FileField(upload_to='logo_images', verbose_name='Логотип для истории бренда')
     year = models.CharField(max_length=5000, verbose_name='Год истории бренда')
     description = models.TextField(max_length=5000, verbose_name='Описание истории бренда')
-    language = models.ForeignKey(to=Language, on_delete=models.DO_NOTHING, related_name='brand_history')
+    image = models.FileField(upload_to='logo_images', verbose_name='Логотип для истории бренда')
+    language = models.ForeignKey(to=Language, on_delete=models.SET_NULL, related_name='brand_history', blank=True, null=True)
 
     def __str__(self) -> CharField:
         return self.year

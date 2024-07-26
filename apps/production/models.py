@@ -5,10 +5,10 @@ from apps.language.models import Language
 
 
 class Production(models.Model):
-    image = models.FileField(upload_to='production_images', verbose_name='Картинка производства')
     title = models.CharField(max_length=5000, verbose_name='Слогон производства')
     description = models.TextField(max_length=5000, verbose_name='Описание производства')
-    language = models.ForeignKey(to=Language, on_delete=models.DO_NOTHING, related_name='production')
+    image = models.FileField(upload_to='production_images', verbose_name='Картинка производства')
+    language = models.ForeignKey(to=Language, on_delete=models.SET_NULL, related_name='production', blank=True, null=True)
 
     def __str__(self) -> CharField:
         return self.title
@@ -19,10 +19,10 @@ class Production(models.Model):
 
 
 class ProductionShort(models.Model):
-    image = models.FileField(upload_to='production_short_images', verbose_name='Картинка производства')
     title = models.CharField(max_length=5000, verbose_name='Слогон производства')
     description = models.TextField(max_length=5000, verbose_name='Описание производства')
-    language = models.ForeignKey(to=Language, on_delete=models.DO_NOTHING, related_name='production_short')
+    image = models.FileField(upload_to='production_short_images', verbose_name='Картинка производства')
+    language = models.ForeignKey(to=Language, on_delete=models.SET_NULL, related_name='production_short', blank=True, null=True)
 
     def __str__(self) -> CharField:
         return self.title
@@ -41,7 +41,7 @@ class ProductionProcess(models.Model):
 
     fact_title = models.CharField(max_length=5000, verbose_name='Факт заглавная')
     fact_text = models.TextField(max_length=5000, verbose_name='Факт текст')
-    language = models.ForeignKey(to=Language, on_delete=models.DO_NOTHING, related_name='production_process')
+    language = models.ForeignKey(to=Language, on_delete=models.SET_NULL, related_name='production_process', blank=True, null=True)
 
 
 class ProductionPath(models.Model):
@@ -71,7 +71,7 @@ class ProductionPath(models.Model):
     desc_6 = models.TextField(max_length=5000, verbose_name='Описание_6')
     image_6 = models.FileField(upload_to='production_path_images', verbose_name='Картинка_6')
 
-    language = models.ForeignKey(to=Language, on_delete=models.DO_NOTHING, related_name='production_path')
+    language = models.ForeignKey(to=Language, on_delete=models.SET_NULL, related_name='production_path', blank=True, null=True)
 
     def __str__(self) -> CharField:
         return self.title
