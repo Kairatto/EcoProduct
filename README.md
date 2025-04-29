@@ -1,5 +1,7 @@
 Volume переименовать на Category	###DONE
+
 Добавить для bran поле слогон		###DONE
+
 url для другие продукты			###DONE
 /brand/another/	
 
